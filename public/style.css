@@ -1,0 +1,240 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --text: #1c2024;
+  --muted: #6b7280;
+  --accent: #156082;
+  --border: #d9dde3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181d;
+    --panel: #21242b;
+    --text: #eef0f3;
+    --muted: #9aa2ad;
+    --accent: #4ea3c9;
+    --border: #33373f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.content-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.ad-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ad-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.ad-top,
+.ad-bottom {
+  min-height: 90px;
+  padding: 12px 20px;
+}
+
+.ad-inline {
+  min-height: 100px;
+  margin-top: 24px;
+}
+
+.ad-rail {
+  flex: 0 0 160px;
+  width: 160px;
+  min-height: 600px;
+  position: sticky;
+  top: 20px;
+  padding-top: 48px;
+}
+
+@media (max-width: 1180px) {
+  .ad-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ad-top,
+  .ad-bottom {
+    min-height: 60px;
+    padding: 8px 12px;
+  }
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.lead {
+  color: var(--muted);
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.tab.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.panel {
+  display: none;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.panel.active {
+  display: block;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.field small,
+.panel > small {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+input[type="file"] {
+  color: var(--text);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#status {
+  min-height: 1.4em;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+#status.error {
+  color: #c0392b;
+}
+
+dialog#diagram-dialog {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 440px;
+  width: calc(100% - 40px);
+  background: var(--panel);
+  color: var(--text);
+}
+
+dialog#diagram-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#diagram-dialog-message {
+  margin: 0 0 20px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.dialog-actions button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.dialog-actions button:not(.secondary) {
+  background: var(--accent);
+  color: white;
+}
+
+.dialog-actions button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}

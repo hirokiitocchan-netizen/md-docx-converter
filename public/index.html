@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MD ⇔ DOCX 変換ツール</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!--
+    Google AdSense loader.
+    TODO: AdSense審査通過後、YOUR_ADSENSE_PUBLISHER_ID を実際の ca-pub-XXXXXXXXXXXXXXXX に置き換えてください。
+    設定手順は README.md の「広告(AdSense)の設定方法」を参照してください。
+  -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="page">
+    <div class="ad-slot ad-top">
+      <span class="ad-label">広告</span>
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+        data-ad-slot="YOUR_TOP_BANNER_SLOT_ID"
+        data-ad-format="horizontal"
+        data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="content-row">
+      <aside class="ad-slot ad-rail">
+        <span class="ad-label">広告</span>
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+          data-ad-slot="YOUR_LEFT_RAIL_SLOT_ID"
+          data-ad-format="vertical"
+          data-full-width-responsive="true"></ins>
+      </aside>
+
+      <main class="wrap">
+        <h1>MD ⇔ DOCX 変換ツール</h1>
+        <p class="lead">Markdown と Word (.docx) を相互変換します。変換エンジンは Pandoc です。</p>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="md2docx" type="button">Markdown → Word</button>
+          <button class="tab" data-tab="docx2md" type="button">Word → Markdown</button>
+        </div>
+
+        <section class="panel active" id="panel-md2docx">
+          <form id="form-md2docx">
+            <label class="field">
+              <span>Markdownファイル (.md)</span>
+              <input type="file" name="file" accept=".md,.markdown,text/markdown" required />
+            </label>
+
+            <label class="field">
+              <span>画像ファイル (任意・複数選択可)</span>
+              <input type="file" name="assets" accept="image/*" multiple />
+              <small>Markdown内で相対パス(例: <code>image.png</code>)で参照している画像がある場合は、ここで同じファイルをまとめて選択してください。選択しないと本文中の画像は変換結果から抜け落ちます。</small>
+            </label>
+
+            <label class="field">
+              <span>スタイルテンプレート (.docx / 任意)</span>
+              <input type="file" name="reference" accept=".docx" />
+              <small>未指定の場合、Word標準テーマに準拠した既定テンプレートを使用します。見出しの書式を独自のWordテンプレートに合わせたい場合はここにアップロードしてください。</small>
+            </label>
+
+            <button type="submit">DOCXに変換してダウンロード</button>
+          </form>
+        </section>
+
+        <section class="panel" id="panel-docx2md">
+          <form id="form-docx2md">
+            <label class="field">
+              <span>Wordファイル (.docx)</span>
+              <input type="file" name="file" accept=".docx" required />
+            </label>
+            <small>画像が含まれる場合は、Markdownと画像フォルダをまとめたZIPをダウンロードします。</small>
+
+            <button type="submit">Markdownに変換してダウンロード</button>
+          </form>
+        </section>
+
+        <p id="status" role="status"></p>
+
+        <div class="ad-slot ad-inline">
+          <span class="ad-label">広告</span>
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+            data-ad-slot="YOUR_RESULT_SLOT_ID"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        </div>
+      </main>
+
+      <aside class="ad-slot ad-rail">
+        <span class="ad-label">広告</span>
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+          data-ad-slot="YOUR_RIGHT_RAIL_SLOT_ID"
+          data-ad-format="vertical"
+          data-full-width-responsive="true"></ins>
+      </aside>
+    </div>
+
+    <footer class="ad-slot ad-bottom">
+      <span class="ad-label">広告</span>
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+        data-ad-slot="YOUR_BOTTOM_BANNER_SLOT_ID"
+        data-ad-format="horizontal"
+        data-full-width-responsive="true"></ins>
+    </footer>
+  </div>
+
+  <dialog id="diagram-dialog">
+    <p id="diagram-dialog-message"></p>
+    <div class="dialog-actions">
+      <button type="button" id="diagram-dialog-cancel" class="secondary">変換しない</button>
+      <button type="button" id="diagram-dialog-ok">このまま変換する</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+  <script src="ads.js"></script>
+</body>
+</html>

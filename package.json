@@ -1,0 +1,16 @@
+{
+  "name": "md-docx-converter",
+  "version": "1.0.0",
+  "description": "Markdown <-> Word (docx) converter web app powered by Pandoc",
+  "private": true,
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "express": "^4.19.2",
+    "multer": "^2.0.1"
+  }
+}

@@ -1,0 +1,8 @@
+# ads.txt placeholder.
+#
+# AdSense の管理画面(サイト > ads.txt)に表示される1行をそのままここに貼り付けてください。
+# 例:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+#
+# このファイルはドメイン直下の /ads.txt として配信される必要があります
+# (このプロジェクトでは server/index.js の express.static により public/ 配下がそのまま公開されます)。
